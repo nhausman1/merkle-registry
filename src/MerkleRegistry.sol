@@ -30,30 +30,19 @@ contract MerkleRegistry is IMerkleRegistry {
     mapping(address => mapping(uint256 => string)) public merkleTrees;
 
     /**
-     * @dev Throws if called by any account other than the owner of the
-     * contract provided. Reverts if contract does not implement IOwner.
-     * Note: implicity reverts if contract_ is not a contract.
-     */
-    modifier allowedToUpdateURI(address contract_) {
-        try IOwner(contract_).owner() returns (address owner) {
-            require(
-                msg.sender == IOwner(contract_).owner(),
-                "Must be owner of contract to update"
-            );
-        } catch {
-            revert("Contract does not implement IOwner");
-        }
-        _;
-    }
-
-    /**
-     * @dev Sets the URI for the tree index and contract provided.
+     * @dev Sets the URI for the tree index and contract provided. Throws if
+     * called by any account other than the owner of the contract provided.
+     * Implicitly reverts if contract_ is not a contract.
      */
     function setURI(
         address contract_,
         uint256 treeIndex,
         string calldata uri
-    ) external allowedToUpdateURI(contract_) {
+    ) external {
+        require(
+            msg.sender == IOwner(contract_).owner(),
+            "Must be owner of contract to update"
+        );
         merkleTrees[contract_][treeIndex] = uri;
         emit URISet(contract_, treeIndex, uri);
     }

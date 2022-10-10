@@ -37,13 +37,13 @@ contract MerkleRegistryTest is Test {
         merkle.setURI(address(ownableToken), 0, "12345");
     }
 
-    function testOwnerlessContractRevers() public {
-        vm.expectRevert(bytes("Contract does not implement IOwner"));
+    function testOwnerlessContractReverts() public {
+        vm.expectRevert();
         merkle.setURI(address(noOwnerToken), 0, "12345");
     }
 
     function testNonContractReverts() public {
-        // Call reverts with EVM error. Contract does not attemp to catch this
+        // Call reverts with EVM error. Contract does not attempt to catch this
         // error because Address.isContract usage is discouraged.
         vm.expectRevert();
         merkle.setURI(address(2), 0, "12345");
