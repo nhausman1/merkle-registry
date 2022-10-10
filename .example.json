@@ -1,10 +1,13 @@
 {
-"contract": "0x1234",
+"contract": "0xc0ffee254729296a45a3885639AC7E10F9d54979",
 "treeIndex": 0,
-  "merkleRoot": "1234",
+"chainId": 1,
+  "merkleRoot": "fbffd63a60374a31aa9811cbc80b577e23925a5874e86a17f712bab874f33ac9",
   "indicies": {
-    "0x123": [0],
-    "0x456": [1, 2]
+    "0x999999cf1046e68e36E1aA2E0E07105eDDD1f08E": [0],
+    "0x1AD674B27a2a5B530B764FB43CC5386e659Ca432": [1, 2]
   },
-  "additionalData": {}
+  "additionalData": {
+    "expiryBlock": "15720062" 
+  }
 }
