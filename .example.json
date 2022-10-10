@@ -1,0 +1,10 @@
+{
+"contract": "0x1234",
+"treeIndex": 0,
+  "merkleRoot": "1234",
+  "indicies": {
+    "0x123": [0],
+    "0x456": [1, 2]
+  },
+  "additionalData": {}
+}
