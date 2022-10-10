@@ -21,7 +21,7 @@ interface IOwner {
     function owner() external view returns (address);
 }
 
-contract MerkleRegistry is IMerkleURIs {
+contract MerkleRegistry is IMerkleRegistry {
     event URISet(address indexed contract_, uint256 treeIndex, string uri);
 
     /**

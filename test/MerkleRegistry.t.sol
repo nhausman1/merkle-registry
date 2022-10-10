@@ -11,13 +11,13 @@ contract OwnableERC20 is ERC20, Ownable {
     }
 }
 
-contract MerkleRgistryTest is Test {
+contract MerkleRegistryTest is Test {
     ERC20 ownableToken;
     ERC20 noOwnerToken;
-    MerkleURIs merkle;
+    MerkleRegistry merkle;
 
     function setUp() public {
-        merkle = new MerkleURIs();
+        merkle = new MerkleRegistry();
         vm.prank(address(1));
         ownableToken = new OwnableERC20();
         noOwnerToken = new ERC20("NO_OWNER", "NOOWN");
